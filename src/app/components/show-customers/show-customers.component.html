@@ -1,0 +1,130 @@
+<div class="card container bg-secondary text-light">
+  <div class="row justify-content-end">
+    <div class="card-body">
+      <h1>Customers</h1>
+      <h4>Company customers details.</h4>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3">
+  <div class="row g-2">
+    <!-- name for the value of the input-->
+    <!-- #firstName="ngModel" for validation -->
+    <div class="row">
+      <div class="col">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Search by first Name"
+            name="firstName"
+            [(ngModel)]="customer.firstName"
+            #firstName="ngModel"
+            required
+          />
+
+          <label for="floatingInput">Search by first Name</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Search by last Name"
+            name="lastName"
+            [(ngModel)]="customer.lastName"
+            #lastName="ngModel"
+            required
+          />
+          <label for="floatingInput"> Search by last Name</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Search by phone"
+            name="phone"
+            [(ngModel)]="customer.phone"
+            #phone="ngModel"
+            required
+          />
+          <label for="floatingInput">Search by phone</label>
+        </div>
+      </div>
+
+      <div class="col">
+        <button
+          type="button"
+          class="btn btn-outline-success mb-3"
+          (click)="addCustomer(customer)"
+        >
+          <i class="fa-solid fa-user-plus"></i>
+          Add customer
+        </button>
+      </div>
+    </div>
+
+    <!-- [(ngModel)]="customer.firstName": This is the value of the filter -->
+    <ng-container
+      *ngIf="
+        customers
+          | filter : 'firstName' : customer.firstName
+          | filter : 'lastName' : customer.lastName
+          | filter : 'phone' : customer.phone as customers
+      "
+    >
+      <div class="container">
+        <table class="table table-striped table-hover mt-4">
+          <thead>
+            <tr>
+              <th scope="col">No.</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Details</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of customers; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ customer.firstName }}</td>
+              <td>{{ customer.lastName }}</td>
+              <td>{{ customer.phone }}</td>
+              <td>{{ customer.email }}</td>
+
+              <!-- Customer Details -->
+              <td>
+                <a routerLink="/customer-detaiels/id">
+                  <i class="fa-solid fa-circle-info"></i>
+                </a>
+              </td>
+
+              <td>
+                <a (click)="updateCustomer(customer)">
+                  <i class="fa-solid fa-pen text-success"></i>
+                </a>
+              </td>
+
+              <!-- to delete -->
+              <td>
+                <a (click)="deleteCustomer(customer)"
+                  ><i class="fa-solid fa-trash text-danger"></i
+                ></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-container>
+  </div>
+</div>

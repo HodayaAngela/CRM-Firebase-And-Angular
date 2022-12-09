@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<div>name is : {{ customer.firstName }}</div>
+<div>age is : {{ customer.firstName }}</div>
+
+<div class="container">
+  <div class="card">
+    <div class="row g-5">
+      <div class="col align-self-center">
+        <div class="card-body">
+          <h5 class="card-title">{{ customer.firstName }}firstName</h5>
+
+          <h6 class="card-title">lastName:{{ customer.lastName }}</h6>
+
+          <p class="card-text">
+            phone:
+            {{ customer.phone }}
+          </p>
+          <h6 class="card-title"><b>email:</b>{{ customer.email }}</h6>
+          <!-- 
+              <ng-container *ngIf="customer.running == false; else v"> -->
+          <!-- &#10062;  x-->
+          <!-- &#9989; v -->
+          <h6 class="card-title"><b>Running:</b> &#10062;</h6>
+          <!-- </ng-container> -->
+          <ng-template #v>
+            <h6 class="card-title"><b>Running:</b>&#9989;</h6>
+          </ng-template>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <!-- <img
+              [src]="customer.img"
+              class="img-fluid rounded-start"
+              alt="..."
+            /> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="btn btn-secondary mt-3" (click)="backToCustomers()">
+  Go Back
+</button>

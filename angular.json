@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -94,8 +95,21 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "crm:build:production",
+            "firebaseProject": "crm-fierbaseangular",
+            "firebaseHostingSite": "crm-fierbaseangular"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

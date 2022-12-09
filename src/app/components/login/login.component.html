@@ -1,0 +1,112 @@
+<!-- Only logged in users will have access to the navbar  -->
+
+<!-- Section: Design Block -->
+<section class="background-radial-gradient overflow-hidden">
+  <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+    <div class="row gx-lg-5 align-items-center mb-5">
+      <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+        <h1
+          class="my-5 display-5 fw-bold ls-tight"
+          style="color: hsl(218, 81%, 95%)"
+        >
+          MY CRM <br />
+          <span style="color: hsl(218, 81%, 75%); font-size: 30px"
+            ><span style="font-size: 38px">Login</span> with your account</span
+          >
+        </h1>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+        <div
+          id="radius-shape-1"
+          class="position-absolute rounded-circle shadow-5-strong"
+        ></div>
+        <div
+          id="radius-shape-2"
+          class="position-absolute shadow-5-strong"
+        ></div>
+
+        <div class="card bg-glass">
+          <div class="card-body px-4 py-5 px-md-5">
+            <!-- Naming the form using Template Reference Variable (TRV):  -->
+            <!-- onSubmit()  called when the "submit" event is triggered on the form -->
+            <form #loginForm="ngForm" (ngSubmit)="login()">
+              <!-- Email input -->
+              <div class="form-floating mb-4">
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                  [(ngModel)]="user.email"
+                  required
+                  email
+                  #email="ngModel"
+                />
+                <label for="floatingInput">Email address</label>
+                <!-- Displaying an error only after the input has been touched and the details are incorrect
+               -->
+                <small
+                  class="text-danger"
+                  *ngIf="email.invalid && (email.touched || email.dirty)"
+                >
+                  Wrong email format</small
+                >
+              </div>
+
+              <!-- Password input -->
+              <div class="form-floating mb-4">
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  id="floatingPassword"
+                  placeholder="Password"
+                  [(ngModel)]="user.password"
+                  required
+                  minlength="8"
+                  #password="ngModel"
+                />
+                <label for="exampleInputPassword1" class="form-label"
+                  >Password</label
+                >
+                <!-- Displaying an error only after the input has been touched and the details are incorrect
+ -->
+                <small
+                  class="text-danger"
+                  *ngIf="
+                    password.invalid && (password.touched || password.dirty)
+                  "
+                >
+                  Wrong password format</small
+                >
+              </div>
+              <!-- button type="submit" - Submitting the form, the object from the ngModle using the name -->
+              <button type="submit" class="btn btn-primary w-100 mt-2">
+                <!-- disabled button: -->
+                <!--   [disabled]="loginForm.invalid" -->
+                Login
+              </button>
+            </form>
+
+            <button
+              class="btn btn-outline-primary w-100 mt-2"
+              (click)="loginWithGoogle()"
+            >
+              <i class="fa-brands fa-google"></i> Login with Google
+            </button>
+
+            <!-- routerLink="/register" : with slash for main routing -->
+            <div class="mt-3 text-center">
+              <a routerLink="/register" class="mt-3 text-center"
+                >New user? Register now</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section: Design Block -->

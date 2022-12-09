@@ -1,0 +1,74 @@
+<div class="container mt-3">
+  <div class="row g-2">
+    <!-- Naming the form by TRV +ngForm -->
+    <!-- (ngSubmit):Response to the event after clicking the button -->
+
+    <form
+      class="row g-3 needs-validation"
+      novalidate
+      #addCustomer="ngForm"
+      (ngSubmit)="addNewCustomer()"
+    >
+      <div class="col-md-12">
+        <label for="validationCustom01" class="form-label">First name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom01"
+          placeholder="Enter First name"
+          name="name"
+          [(ngModel)]="customer.firstName"
+          #firstName="ngModel"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="col-md-12">
+        <label for="validationCustom02" class="form-label">Last name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom02"
+          placeholder="Enter Last name"
+          name="lastName"
+          [(ngModel)]="customer.lastName"
+          #lastName="ngModel"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="col-md-12">
+        <label for="validationCustom02" class="form-label">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom02"
+          placeholder="Enter Email"
+          name="email"
+          [(ngModel)]="customer.email"
+          #email="ngModel"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="col-md-12">
+        <label for="validationCustom02" class="form-label">Phone</label>
+        <input
+          type="number"
+          class="form-control"
+          id="validationCustom02"
+          placeholder="Enter Phone"
+          name="phone"
+          [(ngModel)]="customer.phone"
+          #phone="ngModel"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <div class="col-12 mb-2 mt-2">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

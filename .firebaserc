@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "crm-fierbaseangular": {
+      "hosting": {
+        "crm": [
+          "crm-fierbaseangular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "crm-fierbaseangular"
+  }
+}
