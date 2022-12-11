@@ -44,17 +44,17 @@ export class ShowCustomersComponent implements OnInit {
     modalRef.componentInstance.id = customer.id;
   }
 
-  // Clicking on the Customer Details icon will open the AddCustomerComponent
-  customerDetails(customer: Customer) {
-    // A reference to the modal:
-    let modalRef = this.modal.open(CustomerDetailsComponent, {
-      size: 'lg',
-      centered: true,
-      windowClass: 'dark-modal',
-    });
-    //Passing the id through the modal
-    modalRef.componentInstance.id = customer.id;
-  }
+  // // Clicking on the Customer Details icon will open the AddCustomerComponent
+  // customerDetails(customer: Customer) {
+  //   // A reference to the modal:
+  //   let modalRef = this.modal.open(CustomerDetailsComponent, {
+  //     size: 'lg',
+  //     centered: true,
+  //     windowClass: 'dark-modal',
+  //   });
+  //   //Passing the id through the modal
+  //   modalRef.componentInstance.id = customer.id;
+  // }
 
   // Clicking on the update icon will open the EditCustomerComponent
   updateCustomer(customer: Customer) {

@@ -1,6 +1,15 @@
 h3 {
   color: white;
+  font-family: "fantasy";
+  /* font-weight: 900; */
+  font-size: 30;
 }
 h6 {
   color: rgb(98, 116, 147);
+}
+a {
+  color: white;
+}
+a:hover {
+  color: rgb(169, 162, 225);
 }

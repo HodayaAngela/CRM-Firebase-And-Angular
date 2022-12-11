@@ -75,6 +75,9 @@ a:focus {
 } */
 
 /* Desktop Navigation */
+#sidebar {
+  position: fixed;
+}
 
 .nav-menu {
   padding: 30px 0 0 0;

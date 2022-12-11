@@ -27,6 +27,7 @@ export class AddCustomerComponent implements OnInit {
   ngOnInit(): void {}
 
   addNewCustomer() {
+    if (!this.customer) return alert('Wrong format');
     // addCustomer() will get the customer value from the class using two way data binding[()]
     this.cs
       .addCustomer(this.customer)

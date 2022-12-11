@@ -24,6 +24,7 @@ export class FilterPipe implements PipeTransform {
         // Get an object value using [propName]
         // as string for toLocaleLowerCase()
         (customer[propName] as string)
+          .toString()
           .toLowerCase()
           .includes(value.toLowerCase())
         // value.toLowerCase()

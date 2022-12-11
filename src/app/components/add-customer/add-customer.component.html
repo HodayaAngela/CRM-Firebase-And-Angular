@@ -3,71 +3,106 @@
     <!-- Naming the form by TRV +ngForm -->
     <!-- (ngSubmit):Response to the event after clicking the button -->
 
-    <form
-      class="row g-3 needs-validation"
-      novalidate
-      #addCustomer="ngForm"
-      (ngSubmit)="addNewCustomer()"
-    >
-      <div class="col-md-12">
-        <label for="validationCustom01" class="form-label">First name</label>
+    <form class="row g-3" #addCustomer="ngForm" (ngSubmit)="addNewCustomer()">
+      <div class="form-floating mb-4">
         <input
           type="text"
           class="form-control"
-          id="validationCustom01"
+          id="floatingInput"
           placeholder="Enter First name"
           name="name"
           [(ngModel)]="customer.firstName"
           #firstName="ngModel"
           required
+          minlength="2"
         />
-        <div class="valid-feedback">Looks good!</div>
+        <label for="floatingInput">First name</label>
+        <!-- Displaying an error only after the input has been touched and the details are incorrect
+               -->
+        <small
+          class="text-danger"
+          *ngIf="firstName.invalid && (firstName.touched || firstName.dirty)"
+        >
+          First name must be at least 2 characters</small
+        >
       </div>
-      <div class="col-md-12">
-        <label for="validationCustom02" class="form-label">Last name</label>
+      <div class="form-floating mb-4">
         <input
           type="text"
           class="form-control"
-          id="validationCustom02"
+          id="floatingPassword"
           placeholder="Enter Last name"
           name="lastName"
           [(ngModel)]="customer.lastName"
           #lastName="ngModel"
           required
+          minlength="2"
         />
-        <div class="valid-feedback">Looks good!</div>
+        <label for="floatingInput">Last name</label>
+        <!-- Displaying an error only after the input has been touched and the details are incorrect
+       -->
+        <small
+          class="text-danger"
+          *ngIf="lastName.invalid && (lastName.touched || lastName.dirty)"
+        >
+          Last name must be at least 2 characters</small
+        >
       </div>
-      <div class="col-md-12">
-        <label for="validationCustom02" class="form-label">Email</label>
+      <div class="form-floating mb-4">
         <input
           type="text"
           class="form-control"
-          id="validationCustom02"
-          placeholder="Enter Email"
+          id="floatingInput"
+          placeholder="name@example.com"
           name="email"
           [(ngModel)]="customer.email"
           #email="ngModel"
           required
+          email
         />
-        <div class="valid-feedback">Looks good!</div>
+        <label for="floatingInput">Email address</label>
+        <!-- Displaying an error only after the input has been touched and the details are incorrect
+       -->
+        <small
+          class="text-danger"
+          *ngIf="email.invalid && (email.touched || email.dirty)"
+        >
+          Email invalid</small
+        >
       </div>
-      <div class="col-md-12">
-        <label for="validationCustom02" class="form-label">Phone</label>
+      <div class="form-floating mb-4">
         <input
-          type="number"
+          type="text"
           class="form-control"
-          id="validationCustom02"
+          id="floatingInput"
           placeholder="Enter Phone"
           name="phone"
           [(ngModel)]="customer.phone"
           #phone="ngModel"
           required
+          minlength="9"
         />
-        <div class="valid-feedback">Looks good!</div>
+        <label for="floatingInput">Phone </label>
+        <!-- Displaying an error only after the input has been touched and the details are incorrect
+       -->
+        <small
+          class="text-danger"
+          *ngIf="phone.invalid && (phone.touched || phone.dirty)"
+        >
+          Wrong phone format</small
+        >
       </div>
 
       <div class="col-12 mb-2 mt-2">
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <!-- disabled button: -->
+        <!--   [disabled]="loginForm.invalid" -->
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="addCustomer.invalid"
+        >
+          Submit
+        </button>
       </div>
     </form>
   </div>

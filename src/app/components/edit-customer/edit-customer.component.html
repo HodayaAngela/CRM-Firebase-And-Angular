@@ -3,65 +3,101 @@
   <!-- (ngSubmit):Response to the event after clicking the button -->
   <form #updateCustomer="ngForm" (ngSubmit)="updateTheCustomer()">
     <h3>Update customer record</h3>
-    <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label"
-        >First Name</label
-      >
+    <div class="form-floating mb-4">
       <!-- name for the value of the input-->
       <!-- #firstName="ngModel" for validation -->
       <input
         type="text"
         class="form-control"
-        id="exampleFormControlInput1"
+        id="floatingInput"
         placeholder="Enter First Name"
         name="firstName"
         [(ngModel)]="customer.firstName"
         #firstName="ngModel"
         required
       />
+      <label for="floatingInput">First Name</label>
+      <!-- Displaying an error only after the input has been touched and the details are incorrect
+     -->
+      <small
+        class="text-danger"
+        *ngIf="firstName.invalid && (firstName.touched || firstName.dirty)"
+      >
+        Wrong First Name format</small
+      >
     </div>
-    <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+    <div class="form-floating mb-4">
       <input
         type="text"
         class="form-control"
-        id="exampleFormControlInput1"
+        id="floatingInput"
         placeholder="Enter Last Name"
         name="lastName"
         [(ngModel)]="customer.lastName"
         #lastName="ngModel"
         required
       />
+      <label for="floatingInput">Last Name</label>
+      <!-- Displaying an error only after the input has been touched and the details are incorrect
+     -->
+      <small
+        class="text-danger"
+        *ngIf="lastName.invalid && (lastName.touched || lastName.dirty)"
+      >
+        Wrong Last Name format</small
+      >
     </div>
-    <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Phone</label>
+    <div class="form-floating mb-4">
       <input
         type="text"
         class="form-control"
-        id="exampleFormControlInput1"
+        id="floatingInput"
         placeholder="Enter Phone"
         name="phone"
         [(ngModel)]="customer.phone"
         #phone="ngModel"
         required
+        minlength="9"
       />
+      <label for="floatingInput">Phone</label>
+      <!-- Displaying an error only after the input has been touched and the details are incorrect
+     -->
+      <small
+        class="text-danger"
+        *ngIf="phone.invalid && (phone.touched || phone.dirty)"
+      >
+        Wrong Phone format</small
+      >
     </div>
-    <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Email</label>
+    <div class="form-floating mb-4">
       <input
         type="text"
         class="form-control"
-        id="exampleFormControlInput1"
-        placeholder="Email"
+        id="floatingInput"
+        placeholder="name@example.com"
         name="email"
         [(ngModel)]="customer.email"
-        #phone="ngModel"
+        #email="ngModel"
         required
         email
       />
+      <label for="floatingInput">Email address</label>
+      <!-- Displaying an error only after the input has been touched and the details are incorrect
+     -->
+      <small
+        class="text-danger"
+        *ngIf="email.invalid && (email.touched || email.dirty)"
+      >
+        Wrong email format</small
+      >
     </div>
-    <!-- dashbord/add-customer/show-customer -->
-    <button type="submit" class="btn btn-success mt-2 btn-lg">
+    <!-- disabled button: -->
+    <!--   [disabled]="loginForm.invalid" -->
+    <button
+      type="submit"
+      [disabled]="updateCustomer.invalid"
+      class="btn btn-success mt-2 btn-lg"
+    >
       + Update customer
     </button>
   </form>
