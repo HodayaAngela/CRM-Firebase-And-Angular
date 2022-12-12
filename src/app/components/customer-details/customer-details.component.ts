@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-
 import { Customer } from 'src/app/interfaces/Customer';
 import { CustomersService } from 'src/app/services/customers.service';
 
@@ -12,10 +10,10 @@ import { CustomersService } from 'src/app/services/customers.service';
 })
 export class CustomerDetailsComponent implements OnInit {
   @Input() id!: string;
+  customerId!: string;
   customers: Customer[] = [];
 
   customer: Customer = {
-    id: '',
     firstName: '',
     lastName: '',
     phone: '',
@@ -23,12 +21,18 @@ export class CustomerDetailsComponent implements OnInit {
   };
 
   //ActivatedRoute- Access to information about a route associated with a component that is loaded in an outlet.
-  constructor(private cs: CustomersService, private router: Router) {}
+  constructor(
+    private cs: CustomersService,
+    private ar: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     // Automatic display of customer information
-    this.cs.getCustomerById(this.id).subscribe({
-      next: (customerData: Customer) => (this.customer = customerData),
+    this.customerId = this.ar.snapshot.params['id'];
+
+    this.cs.getCustomer().subscribe({
+      next: (customerData: Customer[]) => (this.customers = customerData),
     });
   }
 

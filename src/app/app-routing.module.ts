@@ -29,7 +29,11 @@ const routes: Routes = [
     //canActivate:[AuthGuard] -a guard deciding if a route can be activated.
     canActivate: [AuthGuard],
   },
-  { path: 'customer-detaiels/id', component: CustomerDetailsComponent },
+  {
+    path: 'customers/:id',
+    component: CustomerDetailsComponent,
+    canActivate: [AuthGuard],
+  },
 
   // Routing that does not exist
   { path: '**', component: PageNotFoundComponent },
