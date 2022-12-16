@@ -81,7 +81,9 @@
       "
     >
       <div id="table" class="container">
-        <table class="table table-striped table-hover mt-4">
+        <table
+          class="table table-striped table-hover table-bordered mt-4 text-center"
+        >
           <thead>
             <tr>
               <th scope="col">No.</th>
@@ -112,14 +114,14 @@
 
               <td>
                 <a (click)="updateCustomer(customer)">
-                  <i class="fa-solid fa-pen text-success"></i>
+                  <i class="fa-regular fa-pen-to-square"></i>
                 </a>
               </td>
 
               <!-- to delete -->
               <td>
                 <a (click)="deleteCustomer(customer)"
-                  ><i class="fa-solid fa-trash text-danger"></i
+                  ><i class="fa-solid fa-trash-can"></i
                 ></a>
               </td>
             </tr>

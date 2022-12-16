@@ -10,8 +10,6 @@ import { CustomersService } from 'src/app/services/customers.service';
 })
 export class CustomerDetailsComponent implements OnInit {
   @Input() id!: string;
-  customerId!: string;
-  customers: Customer[] = [];
 
   customer: Customer = {
     firstName: '',
@@ -29,10 +27,11 @@ export class CustomerDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     // Automatic display of customer information
-    this.customerId = this.ar.snapshot.params['id'];
+    this.id = this.ar.snapshot.params['id'];
 
-    this.cs.getCustomer().subscribe({
-      next: (customerData: Customer[]) => (this.customers = customerData),
+    this.cs.getCustomerById(this.id).subscribe({
+      // The value in the callback transferred to the variable
+      next: (customerData: Customer) => (this.customer = customerData),
     });
   }
 

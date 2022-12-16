@@ -1,8 +1,14 @@
 <div class="container">
   <!-- Naming the form by TRV +ngForm -->
   <!-- (ngSubmit):Response to the event after clicking the button -->
-  <form #updateCustomer="ngForm" (ngSubmit)="updateTheCustomer()">
-    <h3>Update customer record</h3>
+  <form
+    class="mx-5 my-3"
+    #updateCustomer="ngForm"
+    (ngSubmit)="updateTheCustomer()"
+  >
+    <h3 class="text-center mb-3">
+      <i class="fa-solid fa-pen-to-square"></i> Update customer record
+    </h3>
     <div class="form-floating mb-4">
       <!-- name for the value of the input-->
       <!-- #firstName="ngModel" for validation -->
@@ -69,7 +75,7 @@
         Wrong Phone format</small
       >
     </div>
-    <div class="form-floating mb-4">
+    <div class="form-floating mb-2">
       <input
         type="text"
         class="form-control"
@@ -96,7 +102,7 @@
     <button
       type="submit"
       [disabled]="updateCustomer.invalid"
-      class="btn btn-success mt-2 btn-lg"
+      class="btn btn-outline-success mt-1 w-100"
     >
       + Update customer
     </button>
