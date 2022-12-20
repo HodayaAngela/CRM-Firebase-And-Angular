@@ -9,9 +9,9 @@
   button {
     font-size: 0.7rem;
   }
-  #table {
-    padding: 15px;
+  .table {
+    /* padding: 15px; */
+    margin: auto;
     font-size: 0.7rem;
-    max-width: 100rem;
   }
 }

@@ -1,15 +1,15 @@
-<nav class="navbar" style="background-color: #132532">
+<nav class="navbar d-flex" style="background-color: #132532">
   <div class="container-fluid">
-    <a class="navbar-brand">
-      <h3>
+    <a class="navbar-brand mx-5 p-2">
+      <h3 class="mx-5">
         MY
         <i class="fa-solid fa-angles-up"></i>
         CRM
       </h3>
-      <h6>Hello {{ email }}</h6></a
+      <h6 class="mx-5">Hello {{ email }}</h6></a
     >
     <!-- logOut button  -->
-    <form class="d-flex">
+    <form class="p-2">
       <button type="button" class="btn btn-outline-light" (click)="logOut()">
         <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
       </button>

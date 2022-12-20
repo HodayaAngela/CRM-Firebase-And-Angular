@@ -1,32 +1,11 @@
-.tableHeaders {
-  background-color: rgb(75, 12, 12);
-  color: white;
+/* search input */
+.height {
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
-.form-control {
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 1rem;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
-
-.container {
-  margin: 10px;
-  max-width: 1000px;
-}
-
-/* Below 1100px -smaller desktops */
-@media (max-width: 68em) {
-  h1 {
-    font-size: 1.5rem;
-  }
-  h4 {
-    font-size: 1rem;
-  }
-  #table {
-    font-size: 0.6rem;
-  }
+.table {
+  /* padding: 15px; */
+  margin: auto;
+  font-size: 0.7rem;
 }

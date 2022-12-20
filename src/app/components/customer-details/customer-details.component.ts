@@ -26,7 +26,7 @@ export class CustomerDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Automatic display of customer information
+    // A parameter is passed in the current path
     this.id = this.ar.snapshot.params['id'];
 
     this.cs.getCustomerById(this.id).subscribe({

@@ -1,31 +1,57 @@
-<!-- ======= Mobile nav toggle button ======= -->
-<!-- <i class="bi bi-list mobile-nav-toggle d-xl-none"></i> -->
+<div class="area">
+  <nav class="main-menu">
+    <ul>
+      <li class="urderList mt-5 py-2">
+        <a routerLink="customers">
+          <i class="fa fa-home fa-2x"></i>
+          <span class="nav-text"> Dashboard </span>
+        </a>
+      </li>
+      <li class="has-subnav py-2">
+        <a routerLink="customers" routerLinkActive="text-success">
+          <i class="fa fa-people-group fa-2x"></i>
+          <span class="nav-text"> Customers </span>
+        </a>
+      </li>
+      <li class="has-subnav py-2">
+        <a routerLink="contacts" routerLinkActive="text-success">
+          <i class="fa fa-address-card fa-2x"></i>
+          <span class="nav-text"> Contacts </span>
+        </a>
+      </li>
+      <li class="has-subnav py-2">
+        <a>
+          <i class="fa fa-headset fa-2x"></i>
+          <span class="nav-text"> Leads </span>
+        </a>
+      </li>
+      <li class="has-subnav py-2">
+        <a>
+          <i class="fa fa-flag fa-2x"></i>
+          <span class="nav-text"> Reports </span>
+        </a>
+      </li>
+      <li class="has-subnav py-2">
+        <a>
+          <i class="fa fa-clipboard fa-2x"></i>
+          <span class="nav-text"> Integration </span>
+        </a>
+      </li>
+      <li class="has-subnav py-2">
+        <a>
+          <i class="fa fa-money-check-dollar fa-2x"></i>
+          <span class="nav-text"> Year-end Sale </span>
+        </a>
+      </li>
+    </ul>
 
-<nav id="sidebar" class="nav-menu navbar">
-  <ul class="list-unstyled components mt-3 ms-3">
-    <li class="sideNavLink mb-2">
-      <a routerLink="customers" routerLinkActive="text-success"
-        ><i class="fa-solid fa-people-group pe-2"></i> Customers
-      </a>
-    </li>
-    <li class="sideNavLink mb-2">
-      <a routerLink="contacts" routerLinkActive="text-success"
-        ><i class="fa-regular fa-address-card pe-2"></i> Contacts</a
-      >
-    </li>
-    <li class="sideNavLink mb-2">
-      <a><i class="fa-solid fa-headset pe-2"></i> Leads</a>
-    </li>
-    <li class="sideNavLink mb-2">
-      <a><i class="fa-solid fa-flag pe-2"></i> Reports</a>
-    </li>
-    <li class="sideNavLink mb-2">
-      <a><i class="fa-sharp fa-solid fa-clipboard pe-2"></i> Integration</a>
-    </li>
-    <li class="sideNavLink mb-2">
-      <a><i class="fa-solid fa-money-check-dollar pe-2"></i> Year-end Sale</a>
-    </li>
-  </ul>
-</nav>
-<!-- placeholder that Angular dynamically fills based on the current router state. -->
-<!-- In the main file and in files with nesting routes: -->
+    <ul class="logout">
+      <li>
+        <a (click)="logOut()">
+          <i class="fa fa-power-off fa-2x"></i>
+          <span class="nav-text"> Logout </span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

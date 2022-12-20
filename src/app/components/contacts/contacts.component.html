@@ -1,44 +1,55 @@
-<div id="card" class="card container bg-secondary text-light">
+<div id="card" class="card container text-dark col-10">
   <div class="row justify-content-end">
     <div class="card-body">
       <h1>Contacts</h1>
       <h4>Company employees details.</h4>
     </div>
   </div>
-</div>
 
-<div class="container">
-  <div class="form-floating mt-2 mb-2 ms-1">
-    <input
-      type="text"
-      class="form-control"
-      id="floatingInput"
-      placeholder="Search by name"
-      [(ngModel)]="name"
-    />
-    <label for="floatingInput"> Search by name</label>
+  <div class="container">
+    <div class="row height d-flex justify-content-center align-items-center">
+      <div class="col-sm-6">
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control form-input"
+            id="floatingInput"
+            placeholder="Search by name"
+            [(ngModel)]="name"
+          />
+          <label for="floatingInput">
+            <i class="fa fa-search"> </i> Search by name</label
+          >
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive-lg">
+      <ng-container
+        *ngIf="contacts | filterContacts : 'name' : name as contacts"
+      >
+        <table
+          class="table table-hover table-bordered ms-1 table-secondary mb-4"
+        >
+          <thead>
+            <tr>
+              <th scope="col">No.</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Birthday</th>
+              <th>phones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let contact of contacts; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ contact.name }}</td>
+              <td>{{ contact.email }}</td>
+              <td>{{ contact.birthday | date : "dd/MM/YY" }}</td>
+              <td>{{ contact.phones }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
+    </div>
   </div>
-
-  <ng-container *ngIf="contacts | filterContacts : 'name' : name as contacts">
-    <table id="table" class="table table-hover table-bordered ms-1">
-      <thead>
-        <tr class="tableHeaders">
-          <th scope="col">No.</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Birthday</th>
-          <th>phones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let contact of contacts; let i = index">
-          <th scope="row">{{ i + 1 }}</th>
-          <td>{{ contact.name }}</td>
-          <td>{{ contact.email }}</td>
-          <td>{{ contact.birthday | date : "dd/MM/YY" }}</td>
-          <td>{{ contact.phones }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </ng-container>
 </div>

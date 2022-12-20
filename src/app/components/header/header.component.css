@@ -2,14 +2,29 @@ h3 {
   color: white;
   font-family: "fantasy";
   /* font-weight: 900; */
-  font-size: 30;
+  font-size: 1.5rem;
 }
+
 h6 {
   color: rgb(98, 116, 147);
+  font-size: 1rem;
 }
+
 a {
   color: white;
 }
 a:hover {
   color: rgb(169, 162, 225);
+}
+
+@media (max-width: 68em) {
+  button {
+    display: none;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  h6 {
+    font-size: 0.7rem;
+  }
 }
