@@ -5,24 +5,14 @@
   left: 0;
   right: 0;
   bottom: 0;
-  max-width: 1000px;
-}
-
-#footer .copyright {
+  width: 100%;
+  position: fixed;
   text-align: center;
 }
 
 #footer .credits {
-  padding-top: 5px;
-  text-align: center;
+  /* padding-top: 5px; */
+  /* text-align: center; */
   font-size: 13px;
   color: #eaebf0;
-}
-
-@media (max-width: 1199px) {
-  #footer {
-    position: static;
-    width: auto;
-    padding-right: 20px 15px;
-  }
 }

@@ -1,17 +1,16 @@
-<div class="sideBar">
+<div id="header">
+  <app-header></app-header>
+</div>
+
+<div id="sidebar">
   <app-sidebar></app-sidebar>
 </div>
 
 <!-- placeholder that Angular dynamically fills based on the current router state. -->
-<!--In the main file and in files with nesting routes: -->
-<div class="header">
-  <app-header></app-header>
-</div>
-
 <div class="container">
   <router-outlet></router-outlet>
 </div>
 
-<div class="footer">
+<!-- <div class="footer">
   <app-footer></app-footer>
-</div>
+</div> -->

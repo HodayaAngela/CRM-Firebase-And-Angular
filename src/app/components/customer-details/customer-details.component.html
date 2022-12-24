@@ -1,39 +1,24 @@
 <app-header></app-header>
 
 <ng-container *ngIf="customer.id == id">
-  <!--  -->
-  <section>
-    <div class="container">
-      <section class="mx-auto my-5" style="max-width: 23rem">
-        <div class="card testimonial-card mt-2 mb-3">
-          <div class="card-up aqua-gradient"></div>
-          <div class="avatar mx-auto white">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKp9j_NizSKidGvog56QQyTMkJvM7FXJD2Ng&usqp=CAU"
-              class="rounded-circle img-fluid"
-              alt="woman avatar"
-            />
-          </div>
-          <div class="card-body text-center">
-            <h4 class="card-title font-weight-bold">
-              {{ customer.firstName }} {{ customer.lastName }}
-            </h4>
-            <hr />
-            <p>
-              <strong> phone number:</strong>
-              {{ customer.phone }}
-            </p>
-            <p>
-              <strong>mail adress:</strong>
-              {{ customer.email }}
-            </p>
-            <!-- Routing through the code and not automatically through the HTML -->
-            <button class="btn btn-secondary" (click)="backToCustomers()">
-              Go Back
-            </button>
-          </div>
-        </div>
-      </section>
+  <aside class="profile-card">
+    <header>
+      <a target="_blank" href="#">
+        <img src="assets/images/customer.jfif" class="hoverZoomLink" />
+      </a>
+
+      <h1>{{ customer.firstName }} {{ customer.lastName }}</h1>
+    </header>
+
+    <div class="profile-bio mt-2">
+      <h2 class="mb-3">
+        <i class="fa-solid fa-mobile-screen"></i> {{ customer.phone }}
+      </h2>
+      <h2><i class="fa-solid fa-envelopes-bulk"></i> {{ customer.email }}</h2>
     </div>
-  </section>
+    <!-- Routing through the code and not automatically through the HTML -->
+    <button class="btn btn-secondary" (click)="backToCustomers()">
+      Go Back
+    </button>
+  </aside>
 </ng-container>

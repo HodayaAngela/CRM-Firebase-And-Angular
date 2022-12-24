@@ -1,14 +1,15 @@
 <div id="card" class="card container text-dark col-10">
-  <div class="row justify-content-end">
+  <div class="row mx-auto">
     <div class="card-body">
-      <h1>Contacts</h1>
-      <h4>Company employees details.</h4>
+      <h1><i class="fa-solid fa-address-card"></i> Contacts</h1>
+      <h4>Company employees details</h4>
     </div>
   </div>
 
   <div class="container">
-    <div class="row height d-flex justify-content-center align-items-center">
-      <div class="col-sm-6">
+    <!-- search field -->
+    <div class="row height d-flex justify-content-center">
+      <div class="col-sm-6 mb-3">
         <div class="form-floating">
           <input
             type="text"
@@ -22,34 +23,46 @@
           >
         </div>
       </div>
-    </div>
-    <div class="table-responsive-lg">
-      <ng-container
-        *ngIf="contacts | filterContacts : 'name' : name as contacts"
+
+      <!-- End of search field -->
+
+      <div
+        class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 justify-content-center"
       >
-        <table
-          class="table table-hover table-bordered ms-1 table-secondary mb-4"
+        <ng-container
+          *ngIf="contacts | filterContacts : 'name' : name as contacts"
         >
-          <thead>
-            <tr>
-              <th scope="col">No.</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Birthday</th>
-              <th>phones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let contact of contacts; let i = index">
-              <th scope="row">{{ i + 1 }}</th>
-              <td>{{ contact.name }}</td>
-              <td>{{ contact.email }}</td>
-              <td>{{ contact.birthday | date : "dd/MM/YY" }}</td>
-              <td>{{ contact.phones }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </ng-container>
+          <div *ngFor="let contact of contacts" class="col">
+            <div class="card radius-15">
+              <div class="card-body">
+                <div class="p-2 border radius-15 text-center">
+                  <img
+                    src="{{ contact.img }}"
+                    width="110"
+                    height="110"
+                    class="rounded-circle shadow"
+                    alt="avatar image"
+                  />
+                  <h5 class="mb-4 mt-5 text-center">{{ contact.name }}</h5>
+                  <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    {{ contact.email }}
+                  </p>
+                  <p>
+                    <i class="fa-solid fa-cake-candles"></i>
+                    {{ contact.birthday | date : "dd/MM/YY" }}
+                  </p>
+
+                  <p>
+                    <i class="fa-solid fa-phone-volume"></i>
+                    {{ contact.phones }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
     </div>
   </div>
 </div>
