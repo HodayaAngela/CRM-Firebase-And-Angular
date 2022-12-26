@@ -1,24 +1,38 @@
 <app-header></app-header>
-
 <ng-container *ngIf="customer.id == id">
-  <aside class="profile-card">
-    <header>
-      <a target="_blank" href="#">
-        <img src="assets/images/customer.jfif" class="hoverZoomLink" />
-      </a>
-
-      <h1>{{ customer.firstName }} {{ customer.lastName }}</h1>
-    </header>
-
-    <div class="profile-bio mt-2">
-      <h2 class="mb-3">
-        <i class="fa-solid fa-mobile-screen"></i> {{ customer.phone }}
-      </h2>
-      <h2><i class="fa-solid fa-envelopes-bulk"></i> {{ customer.email }}</h2>
+  <div class="container mx-auto">
+    <div class="row">
+      <div class="col">
+        <div class="our-team">
+          <div class="picture">
+            <img
+              class="img-fluid"
+              src="assets/images/customer.jfif"
+              alt="customer image"
+            />
+          </div>
+          <div class="team-content">
+            <h3 class="name">
+              {{ customer.firstName }} {{ customer.lastName }}
+            </h3>
+            <!-- <h4 class="title">Web Developer</h4> -->
+          </div>
+          <div class="profile-bio my-4">
+            <p class="my-3">
+              <i class="fa-solid fa-mobile-screen"></i>
+              {{ customer.phone }}
+            </p>
+            <p>
+              <i class="fa-solid fa-envelopes-bulk"></i>
+              {{ customer.email }}
+            </p>
+          </div>
+        </div>
+        <!-- Routing through the code and not automatically through the HTML -->
+        <button class="btn btn-secondary" (click)="backToCustomers()">
+          Go Back
+        </button>
+      </div>
     </div>
-    <!-- Routing through the code and not automatically through the HTML -->
-    <button class="btn btn-secondary" (click)="backToCustomers()">
-      Go Back
-    </button>
-  </aside>
+  </div>
 </ng-container>
