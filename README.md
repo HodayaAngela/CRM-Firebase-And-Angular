@@ -1,5 +1,7 @@
 # CRM- Firebase & Angular Project
 
+![CRM APP](src\assets\images\‏‏CrmApp.PNG)
+
 CRM is an Client Relationship Management application that allows to view your customers, organize the sales pipeline, manage contact information, communicate with customers, run marketing campaigns and track campaign performance.
 
 ![CRM APP](/src\assets\images\‏‏CrmApp.PNG)
@@ -14,7 +16,7 @@ CRM is an Client Relationship Management application that allows to view your cu
 
 [My repository on Github](https://github.com/HodayaAngela/CRM-Firebase-And-Angular-Project)
 
-[firebase app](https://crm-fierbaseangular.web.app)
+[Firebase app](https://crm-fierbaseangular.web.app)
 
 ## installations
 
